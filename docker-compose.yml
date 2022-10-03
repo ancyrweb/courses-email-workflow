@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mailcatcher:
+    image: 'schickling/mailcatcher'
+    ports:
+      - '7001:1080' # UI
+      - '7002:1025' # SMTP
+  redis:
+    image: 'redis'
+    ports:
+      - '7003:6379'
+    volumes:
+      - redisvolume:/data
+
+volumes:
+  redisvolume:
